@@ -1,0 +1,7 @@
+{
+  "name": "Thrift Trip",
+  "description": "Global Travel on Your Terms & Budget. An intelligent travel search engine that finds the perfect pairing of cheap flights and affordable accommodation for any date range.",
+  "requestFramePermissions": [
+    "geolocation"
+  ]
+}
