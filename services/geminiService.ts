@@ -4,7 +4,8 @@ import { SearchParams, TripProposal, CitySuggestion } from "../types";
 export const getCitySuggestions = async (input: string): Promise<CitySuggestion[]> => {
   if (!input || input.length < 2) return [];
 
-  const ai = new GoogleGenAI({ apiKey: process.env.API_KEY || '' });
+  // Initialize right before call to ensure latest API key
+  const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
   const response = await ai.models.generateContent({
     model: "gemini-3-flash-preview",
     contents: `Identify 5 major international cities that match or start with "${input}". Return as a JSON array of objects with keys "city" and "country".`,
