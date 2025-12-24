@@ -146,6 +146,29 @@ const TripDetails: React.FC<TripDetailsProps> = ({ trip, onClose }) => {
               </div>
             </section>
 
+                        {/* Grounding Sources Section */}
+            {trip.sources && trip.sources.length > 0 && (
+              <section className="pt-10 border-t border-gray-100">
+                <h3 className="text-[10px] font-black text-gray-400 uppercase tracking-[0.3em] mb-6 flex items-center">
+                   Verified Search Sources
+                </h3>
+                <div className="flex flex-wrap gap-4">
+                  {trip.sources.map((source, idx) => (
+                    <a 
+                      key={idx} 
+                      href={source.uri} 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center px-4 py-2 bg-gray-50 hover:bg-sky-50 border border-gray-200 hover:border-sky-200 rounded-xl text-xs font-bold text-gray-600 hover:text-sky-600 transition-all"
+                    >
+                      <i className="fa-solid fa-link mr-2 text-[10px]"></i>
+                      {source.title.length > 30 ? source.title.substring(0, 30) + '...' : source.title}
+                    </a>
+                  ))}
+                </div>
+              </section>
+            )}
+
             <div className="pt-10 border-t border-gray-100">
               <div className="bg-emerald-50 p-10 rounded-[3rem] border border-emerald-100 flex flex-col md:flex-row items-center justify-between gap-8">
                 <div className="text-center md:text-left">
