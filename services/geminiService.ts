@@ -33,7 +33,8 @@ export const getCitySuggestions = async (input: string): Promise<CitySuggestion[
 };
 
 export const generateTrips = async (params: SearchParams): Promise<TripProposal[]> => {
-  const ai = new GoogleGenAI({ apiKey: process.env.API_KEY || '' });
+  // Initialize right before call to ensure latest API key
+  const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
   
   const prompt = `
   You are the high-precision "Thrift Trip" engine. Find the 3 absolute cheapest international vacation pairings.
